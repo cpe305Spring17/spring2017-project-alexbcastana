@@ -32,5 +32,23 @@ public abstract class GameStyle {
     return turnCount;
   }
 
+  public int getbPieces() {
+    return bPieces;
+  }
 
+  public int getrPieces() {
+    return rPieces;
+  }
+
+  public void incTurnCount() {
+    turnCount++;
+  }
+
+  public void decBPieces() {
+    bPieces++;
+  }
+
+  public void decRPieces() {
+    rPieces++;
+  }
 }
