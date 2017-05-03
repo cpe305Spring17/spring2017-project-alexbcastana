@@ -10,4 +10,3 @@ addons:
     organization: "305"
 script:
  - sonar-scanner
- 
