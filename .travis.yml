@@ -5,3 +5,9 @@ install:
 - mvn test -B
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
+addons:
+  sonarqube:
+    organization: "305"
+script:
+ - sonar-scanner
+ 
