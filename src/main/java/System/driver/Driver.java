@@ -1,12 +1,11 @@
-package System.Driver;
+package System.driver;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
 
 import java.util.*;
-import java.io.*;
-import System.GameMode.*;
+import System.style.*;
 
 
 public class Driver {
@@ -19,11 +18,11 @@ public class Driver {
 
     String mode = scan.next();
 
-    if(mode.equals("Standard") || mode.equals("standard")) {
+    if("Standard".equals(mode) || "standard".equals(mode)) {
       game = new StandardMode();
     }
 
-    else if(mode.equals("Score") || mode.equals("score")) {
+    else if("Score".equals(mode) || "score".equals(mode)) {
       game = new ScoreMode();
     }
 

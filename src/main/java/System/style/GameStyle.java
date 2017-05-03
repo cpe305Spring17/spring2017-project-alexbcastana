@@ -1,9 +1,9 @@
-package System.GameMode;
+package System.style;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
-import Board.Board.Board;
+import Board.board.Board;
 
 public abstract class GameStyle {
 

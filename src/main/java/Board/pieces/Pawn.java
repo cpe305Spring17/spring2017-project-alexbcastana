@@ -1,9 +1,9 @@
-package Board.Pieces;
+package Board.pieces;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
-import Board.Board.Square;
+import Board.board.Square;
 
 public class Pawn extends Piece {
 

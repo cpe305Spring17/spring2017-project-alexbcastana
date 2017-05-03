@@ -1,8 +1,9 @@
-package Board.Board;
+package Board.board;
 
 /**
  * Created by Marthxander on 4/25/2017.
  */
+
 public class Board {
 
   private final int SIZE = 8;

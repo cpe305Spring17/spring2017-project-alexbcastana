@@ -1,9 +1,9 @@
-package Board.Board;
+package Board.board;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
-import Board.Pieces.*;
+import Board.pieces.*;
 
 public class Square {
 

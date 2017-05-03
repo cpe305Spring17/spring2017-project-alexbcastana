@@ -1,6 +1,4 @@
-package System.GameMode;
-
-import System.GameMode.GameStyle;
+package System.style;
 
 /**
  * Created by Marthxander on 4/27/2017.
