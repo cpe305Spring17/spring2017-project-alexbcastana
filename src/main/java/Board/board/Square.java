@@ -10,12 +10,12 @@ public class Square {
   private boolean isOccupied;
   private Piece piece;
 
+  //Square on the board. 64 squares per board
   public Square(boolean isOccupied, boolean isBlack, boolean isKing) {
 
-    if(isKing) {
+    if (isKing) {
       this.piece = new King(this, isBlack);
-    }
-    else {
+    } else {
       this.piece = new Pawn(this, isBlack);
     }
     this.isOccupied = isOccupied;
@@ -40,7 +40,7 @@ public class Square {
 
   @Override
   public String toString() {
-    if(isOccupied) {
+    if (isOccupied) {
       return piece.getColor();
     }
     return "- ";
