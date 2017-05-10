@@ -18,16 +18,15 @@ public class Board {
     boolean isOccupied;
     boolean isBlack;
 
-    for(int count = 0; count < SIZE; count++) {
+    for (int count = 0; count < SIZE; count++) {
 
       for (int counter = 0; counter < SIZE; counter++) {
         isBlack = false;
         isOccupied = false;
 
-        if(count < RED_SIDE && counter % 2 != 0) {
+        if (count < RED_SIDE && counter % 2 != 0) {
           isOccupied = true;
-        }
-        else if(count > BLACK_SIDE && counter % 2 == 0) {
+        } else if (count > BLACK_SIDE && counter % 2 == 0) {
           isBlack = isOccupied = true;
         }
         checkerBoard[count][counter] = new Square(isOccupied,  isBlack, false);
@@ -37,9 +36,9 @@ public class Board {
 
   public void drawBoard() {
 
-    for(int count = 0; count < SIZE; count++) {
+    for (int count = 0; count < SIZE; count++) {
 
-      for(int counter = 0; counter < SIZE; counter++) {
+      for (int counter = 0; counter < SIZE; counter++) {
 
         System.out.print(checkerBoard[count][counter].toString());
       }
