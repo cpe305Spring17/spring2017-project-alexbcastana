@@ -17,4 +17,10 @@ public class SqTest
       assertFalse(square.isOccupied());
    }
 
+   @Test
+   public void testPiece() {
+     Square square = new Square(true, true, true);
+     assertEquals(square.toString(), "B");
+   }
+
 }
