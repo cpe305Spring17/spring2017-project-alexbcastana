@@ -43,6 +43,6 @@ public class Square {
     if (isOccupied) {
       return piece.getColor();
     }
-    return "- ";
+    return " -";
   }
 }
