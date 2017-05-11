@@ -4,10 +4,12 @@
 
 import Board.board.Square;
 import org.junit.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 import static org.junit.Assert.*;
 
-public class SqTest
+public class SqTest extends TestCase
 {
    @Test
    public void testIsOccupied() {
