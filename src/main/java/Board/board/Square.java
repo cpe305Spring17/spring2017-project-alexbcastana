@@ -1,8 +1,5 @@
 package Board.board;
 
-/**
- * Created by Marthxander on 4/27/2017.
- */
 import Board.pieces.*;
 
 public class Square {
@@ -11,14 +8,14 @@ public class Square {
   private Piece piece;
 
   //Square on the board. 64 squares per board
-  public Square(boolean isOccupied, boolean isBlack, boolean isKing) {
+  public Square(boolean IsOccupied, boolean isBlack, boolean isKing) {
 
     if (isKing) {
       this.piece = new King(this, isBlack);
     } else {
       this.piece = new Pawn(this, isBlack);
     }
-    this.isOccupied = isOccupied;
+    this.isOccupied = IsOccupied;
 
   }
 
