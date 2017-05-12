@@ -13,6 +13,7 @@ public class Driver {
   public static void main(String[] args) {
     GameStyle game;
     Scanner scan = new Scanner(System.in);
+    String temp;
 
     System.out.println("What game mode would you like to play?");
 
@@ -31,6 +32,13 @@ public class Driver {
       return;
     }
     game.startGame();
+
+    //temporary holder for commands. Will be moved into User/Interpreter class
+    //for now it just displays board and awaits a command to shut itself down.
+    temp = scan.next();
+    while ("quit".equals(temp) == false) {
+          temp = scan.next();
+    }
   }
 
 }
