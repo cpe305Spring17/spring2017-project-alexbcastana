@@ -12,9 +12,9 @@ public class King extends Piece{
   public King(Square square, boolean isBlack) {
 
     super(square);
-    color = "R";
+    color = " R ";
     if(isBlack) {
-      color = "B";
+      color = " B ";
     }
   }
 

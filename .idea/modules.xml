@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Command_Checkers.iml" filepath="$PROJECT_DIR$/Command_Checkers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CPE305.iml" filepath="$PROJECT_DIR$/CPE305.iml" />
     </modules>
   </component>
 </project>
