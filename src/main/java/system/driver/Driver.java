@@ -1,11 +1,11 @@
-package System.driver;
+package system.driver;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
 
 import java.util.*;
-import System.style.*;
+import system.style.*;
 
 
 public class Driver {

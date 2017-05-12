@@ -1,6 +1,7 @@
-package Board.board;
+package board;
 
-import Board.pieces.*;
+import board.Board;
+import board.pieces.*;
 
 public class Square {
 

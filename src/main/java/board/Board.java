@@ -1,4 +1,4 @@
-package Board.board;
+package board;
 
 /**
  * Created by Marthxander on 4/25/2017.

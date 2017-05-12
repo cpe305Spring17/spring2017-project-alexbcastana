@@ -1,20 +1,20 @@
-package Board.pieces;
+package board.pieces;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
-import Board.board.Square;
+import board.Square;
 
-public class King extends Piece{
+public class Pawn extends Piece {
 
   private String color;
 
-  public King(Square square, boolean isBlack) {
+  public Pawn(Square square, boolean isBlack) {
 
     super(square);
-    color = " R ";
+    color = " r ";
     if(isBlack) {
-      color = " B ";
+      color = " b ";
     }
   }
 

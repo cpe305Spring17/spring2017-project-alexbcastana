@@ -2,12 +2,9 @@
  * Created by Marthxander on 5/10/2017.
  */
 
-import Board.board.Square;
+import board.Square;
 import org.junit.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
-
-import static org.junit.Assert.*;
 
 public class SqTest extends TestCase
 {

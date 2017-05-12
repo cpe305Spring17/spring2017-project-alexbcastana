@@ -1,9 +1,9 @@
-package Board.pieces;
+package board.pieces;
 
 /**
  * Created by Marthxander on 4/27/2017.
  */
-import Board.board.Square;
+import board.Square;
 
 public abstract class Piece {
   protected Square square;

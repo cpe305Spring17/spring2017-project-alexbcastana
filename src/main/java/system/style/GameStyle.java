@@ -1,9 +1,7 @@
-package System.style;
-
-/**
+package system.style; /**
  * Created by Marthxander on 4/27/2017.
  */
-import Board.board.Board;
+import board.Board;
 
 public abstract class GameStyle {
 
