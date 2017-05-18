@@ -5,6 +5,8 @@ package system.driver;
  */
 
 import java.util.*;
+
+import board.Board;
 import system.style.*;
 
 
@@ -13,7 +15,7 @@ public class Driver {
   public static void main(String[] args) {
     GameStyle game;
     Scanner scan = new Scanner(System.in);
-    String temp;
+    Board board = new Board();
 
     System.out.println("What game mode would you like to play?");
 
@@ -31,14 +33,11 @@ public class Driver {
       System.out.println("Not an available game mode. Restart Application");
       return;
     }
-    game.startGame();
 
-    //temporary holder for commands. Will be moved into User/Interpreter class
-    //for now it just displays board and awaits a command to shut itself down.
-    temp = scan.next();
-    while ("quit".equals(temp) == false) {
-          temp = scan.next();
-    }
+    game.startGame(board);
+    UserCommands uComm = new UserCommands(game);
+
+    uComm.run();
   }
 
 }

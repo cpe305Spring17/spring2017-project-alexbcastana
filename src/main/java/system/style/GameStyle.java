@@ -2,6 +2,7 @@ package system.style; /**
  * Created by Marthxander on 4/27/2017.
  */
 import board.Board;
+import board.Square;
 
 public abstract class GameStyle {
 
@@ -10,6 +11,7 @@ public abstract class GameStyle {
   private int turnCount;
   private int rPieces;
   private int bPieces;
+  private Board board;
 
   public GameStyle() {
     timeRemaining = 0;
@@ -17,8 +19,8 @@ public abstract class GameStyle {
     rPieces = STARTING_PIECES;
     bPieces = STARTING_PIECES;
   }
-  public void startGame() {
-    Board board = new Board();
+  public void startGame(Board board) {
+    this.board = board;
     board.drawBoard();
   }
 
@@ -30,11 +32,11 @@ public abstract class GameStyle {
     return turnCount;
   }
 
-  public int getbPieces() {
+  public int getBPieces() {
     return bPieces;
   }
 
-  public int getrPieces() {
+  public int getRPieces() {
     return rPieces;
   }
 
@@ -48,5 +50,34 @@ public abstract class GameStyle {
 
   public void decRPieces() {
     rPieces++;
+  }
+
+  public void move(int originX, int originY, int nextX, int nextY) {
+
+    if (moveIsValid(originX, originY, nextX, nextY)) {
+      board.makeMove(originX, originY, nextX, nextY);
+    }
+
+    board.drawBoard();
+  }
+
+  private boolean moveIsValid(int originX, int originY, int nextX, int nextY) {
+
+    int tempX, tempY;
+    Square start, end;
+
+    tempX = originX + 2;
+    tempY = originY + 2;
+
+    if ((originX - 2) == nextX) {
+      tempX = nextX - 1;
+    }
+
+    if ((originY - 2) == nextY) {
+      tempY = nextY - 1;
+    }
+    start = board.getSquare(originX, originY);
+    end = board.getSquare(nextX, nextY);
+    return (start.isOccupied() && !end.isOccupied());
   }
 }

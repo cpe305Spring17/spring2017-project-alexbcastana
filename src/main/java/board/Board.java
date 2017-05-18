@@ -36,14 +36,31 @@ public class Board {
 
   public void drawBoard() {
 
+    System.out.println(" 0  1  2  3  4  5  6  7 ");
     for (int count = 0; count < SIZE; count++) {
 
       for (int counter = 0; counter < SIZE; counter++) {
 
         System.out.print(checkerBoard[count][counter].toString());
       }
-      System.out.println("");
+      System.out.println(" " + count);
     }
   }
+
+  public Square getSquare(int locationX, int locationY) {
+
+    return checkerBoard[locationX][locationY];
+
+  }
+
+  public void makeMove(int originX, int originY, int nextX, int nextY) {
+
+    System.out.println(checkerBoard[originX][originY].toString());
+    checkerBoard[nextX][nextY] = checkerBoard[originX][originY];
+    checkerBoard[originX][originY] = new Square(false, false, false);
+
+  }
+
+
 }
 
