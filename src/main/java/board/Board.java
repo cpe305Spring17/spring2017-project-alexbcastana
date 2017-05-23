@@ -1,5 +1,7 @@
 package board;
 
+import board.pieces.Pawn;
+
 /**
  * Created by Marthxander on 4/25/2017.
  */
@@ -55,12 +57,70 @@ public class Board {
 
   public void makeMove(int originX, int originY, int nextX, int nextY) {
 
-    System.out.println(checkerBoard[originX][originY].toString());
-    checkerBoard[nextX][nextY] = checkerBoard[originX][originY];
-    checkerBoard[originX][originY] = new Square(false, false, false);
+    int captureLocX, captureLocY, xCoor, yCoor;
+    boolean flag;
+    Square origin, next;
+    origin = checkerBoard[originX][originY];
 
+    xCoor = nextX - originX;
+    yCoor = nextY - originY;
+    captureLocX = originX + xCoor;
+    captureLocY = originY + yCoor;
+
+    if (origin.getPiece() instanceof Pawn) {
+      System.out.println("Pawn Check" + xCoor + " " + yCoor);
+      flag = checkPawn(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
+    }
+    else {
+      flag = checkKing(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
+    }
+    System.out.println(flag);
+    if (flag) {
+      checkerBoard[nextX][nextY] = checkerBoard[originX][originY];
+      checkerBoard[originX][originY] = new Square(false, false, false);
+    }
   }
 
+  private boolean checkPawn(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
+
+    if ((xCoor == -1 || xCoor == 1) && (yCoor == -1 || yCoor == 1)) {
+      return true;
+    }
+    else if ((xCoor == 2 || xCoor == -2) && (yCoor == 2 || yCoor == -2)) {
+      return checkForCapture(checkerBoard[originX][originY], captureLocX, captureLocY);
+    }
+    return false;
+  }
+
+  private boolean checkKing(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
+
+    if ((xCoor >= -1 && xCoor <= 1) && (yCoor >= -1 && xCoor <= 1)) {
+      return true;
+    }
+    else if ((xCoor == 2 || xCoor == -2) && (yCoor <= 2 && yCoor >= -2)) {
+      return checkForCapture(checkerBoard[originX][originY], captureLocX, captureLocY);
+    }
+    else if ((xCoor <= 2 && xCoor >= -2) && (yCoor == 2 || yCoor == -2)) {
+      return checkForCapture(checkerBoard[originX][originY], captureLocX, captureLocY);
+    }
+    return false;
+  }
+
+  private boolean checkForCapture(Square origin, int tempX, int tempY) {
+
+    boolean flag = false;
+
+    try {
+      if (!origin.getPiece().getFaction().equals(checkerBoard[tempX][tempY].getPiece().getFaction())) {
+        flag = true;
+      }
+    }
+    catch (Exception except){
+      flag = false;
+    }
+
+    return flag;
+  }
 
 }
 

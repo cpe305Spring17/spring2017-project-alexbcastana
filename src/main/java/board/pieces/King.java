@@ -11,7 +11,7 @@ public class King extends Piece{
 
   public King(Square square, boolean isBlack) {
 
-    super(square);
+    super(square, isBlack);
     color = " R ";
     if(isBlack) {
       color = " B ";
@@ -28,5 +28,9 @@ public class King extends Piece{
 
   public void move(String location) {
 
+  }
+
+  public String getFaction() {
+    return faction;
   }
 }

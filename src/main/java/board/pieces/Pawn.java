@@ -9,9 +9,10 @@ public class Pawn extends Piece {
 
   private String color;
 
+
   public Pawn(Square square, boolean isBlack) {
 
-    super(square);
+    super(square, isBlack);
     color = " r ";
     if(isBlack) {
       color = " b ";
@@ -28,5 +29,9 @@ public class Pawn extends Piece {
 
   public void move(String location) {
 
+  }
+
+  public String getFaction() {
+    return faction;
   }
 }
