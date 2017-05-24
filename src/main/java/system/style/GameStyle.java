@@ -63,19 +63,9 @@ public abstract class GameStyle {
 
   private boolean moveIsValid(int originX, int originY, int nextX, int nextY) {
 
-    int tempX, tempY;
+
     Square start, end;
 
-    tempX = originX + 2;
-    tempY = originY + 2;
-
-    if ((originX - 2) == nextX) {
-      tempX = nextX - 1;
-    }
-
-    if ((originY - 2) == nextY) {
-      tempY = nextY - 1;
-    }
     start = board.getSquare(originX, originY);
     end = board.getSquare(nextX, nextY);
     return (start.isOccupied() && !end.isOccupied());
