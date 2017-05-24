@@ -25,10 +25,7 @@ public class SqTest extends TestCase
 
    @Test
    public void testGetPiece() {
-      Piece myPiece;
-      boolean test = false;
       Square square = new Square(true, true, true);
-      myPiece = square.getPiece();
       assertTrue(square.getPiece() != null);
    }
 }
