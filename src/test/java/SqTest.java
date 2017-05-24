@@ -29,7 +29,8 @@ public class SqTest extends TestCase
       boolean test = false;
       Square square = new Square(true, true, true);
       myPiece = square.getPiece();
-      assertTrue(myPiece.getColor().equals("b"));
+      assertTrue(square.getPiece() != null);
+      assertTrue(myPiece.getColor().equals("B"));
       assertTrue((myPiece.getFaction().equals("Black")));
    }
 }
