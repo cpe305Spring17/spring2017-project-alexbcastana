@@ -26,10 +26,6 @@ public class King extends Piece{
     return color;
   }
 
-  public void move(String location) {
-
-  }
-
   public String getFaction() {
     return faction;
   }

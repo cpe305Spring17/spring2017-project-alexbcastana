@@ -3,6 +3,7 @@
  */
 
 import board.Square;
+import board.pieces.Piece;
 import org.junit.Test;
 import junit.framework.TestCase;
 
@@ -22,4 +23,14 @@ public class SqTest extends TestCase
      assertEquals(square.toString(), " B ");
    }
 
+   @Test
+   public void testGetPiece() {
+      Piece myPiece;
+      boolean test = false;
+      Square square = new Square(true, true, true);
+      myPiece = square.getPiece();
+      assertTrue(square.getPiece() instanceof Piece);
+      assertTrue(myPiece.getColor().equals("b"));
+      assertTrue((myPiece.getFaction().equals("Black")));
+   }
 }

@@ -18,8 +18,6 @@ public abstract class Piece {
     }
   }
 
-  public abstract void move(String location);
-
   public abstract String getColor();
 
   public abstract String getFaction();

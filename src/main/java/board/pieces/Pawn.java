@@ -27,10 +27,6 @@ public class Pawn extends Piece {
     return color;
   }
 
-  public void move(String location) {
-
-  }
-
   public String getFaction() {
     return faction;
   }
