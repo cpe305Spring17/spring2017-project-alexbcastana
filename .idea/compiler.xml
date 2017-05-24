@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Command_Checkers" />
         <module name="CPE305" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Command_Checkers" target="1.8" />
       <module name="CPE305" target="1.8" />
     </bytecodeTargetLevel>
   </component>
