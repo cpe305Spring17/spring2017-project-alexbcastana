@@ -11,5 +11,4 @@ public class StandardMode extends GameStyle {
     super();
   }
 
-
 }

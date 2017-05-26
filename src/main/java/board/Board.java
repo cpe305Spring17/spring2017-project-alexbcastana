@@ -11,6 +11,8 @@ public class Board {
   private final int SIZE = 8;
   private final int RED_SIDE = 3;
   private final int BLACK_SIDE = 4;
+  private int bLost;
+  private int rLost;
 
   private Square[][] checkerBoard;
 
@@ -34,11 +36,13 @@ public class Board {
         checkerBoard[count][counter] = new Square(isOccupied,  isBlack, false);
       }
     }
+    bLost = 0;
+    rLost = 0;
   }
 
   public void drawBoard() {
 
-    System.out.println(" 0  1  2  3  4  5  6  7 ");
+    System.out.println(" A  B  C  D  E  F  G  H ");
     for (int count = 0; count < SIZE; count++) {
 
       for (int counter = 0; counter < SIZE; counter++) {
@@ -55,12 +59,15 @@ public class Board {
 
   }
 
-  public void makeMove(int originX, int originY, int nextX, int nextY) {
+  public boolean makeMove(int originX, int originY, int nextX, int nextY) {
 
     int captureLocX, captureLocY, xCoor, yCoor;
     boolean flag;
     Square origin, next;
     origin = checkerBoard[originX][originY];
+
+    rLost = 0;
+    bLost = 0;
 
     xCoor = nextX - originX;
     yCoor = nextY - originY;
@@ -74,11 +81,12 @@ public class Board {
     else {
       flag = checkKing(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
     }
-    System.out.println(flag);
     if (flag) {
       checkerBoard[nextX][nextY] = checkerBoard[originX][originY];
       checkerBoard[originX][originY] = new Square(false, false, false);
+      //change turns
     }
+    return flag;
   }
 
   private boolean checkPawn(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
@@ -119,8 +127,28 @@ public class Board {
       flag = false;
     }
 
+    if (flag) {
+      takePiece(tempX, tempY);
+    }
     return flag;
   }
 
+  private void takePiece(int tempX, int tempY) {
+    checkerBoard[tempX][tempX] = new Square(false, false, false);
+    if (checkerBoard[tempX][tempY].getPiece().getFaction().equals("Red")) {
+      rLost = 1;
+    }
+    else {
+      bLost = 1;
+    }
+  }
+
+  public int getRLost() {
+    return rLost;
+  }
+
+  public int getBLost() {
+    return bLost;
+  }
 }
 

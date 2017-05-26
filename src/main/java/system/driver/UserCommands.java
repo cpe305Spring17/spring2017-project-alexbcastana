@@ -25,7 +25,6 @@ public class UserCommands {
         while (!"quit".equals(temp)) {
             interpretCommand(temp, scan);
             temp = scan.next();
-
         }
 
         return 0;
@@ -54,13 +53,22 @@ public class UserCommands {
             return;
         }
 
+        originY = correctLetter(coordinateStart.charAt(0));
         originX = Character.getNumericValue(coordinateStart.charAt(1));
-        originY = Character.getNumericValue(coordinateStart.charAt(0));
 
+        nextY = correctLetter(coordinateDest.charAt(0));
         nextX = Character.getNumericValue(coordinateDest.charAt(1));
-        nextY = Character.getNumericValue(coordinateDest.charAt(0));
+
 
         style.move(originX, originY, nextX, nextY);
+    }
 
+    private int correctLetter(char letter) {
+
+        int temp;
+
+        letter = Character.toUpperCase(letter);
+        temp = Character.getNumericValue(letter);
+        return temp - Character.getNumericValue('A');
     }
 }
