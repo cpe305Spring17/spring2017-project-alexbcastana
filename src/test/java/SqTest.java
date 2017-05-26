@@ -20,7 +20,7 @@ public class SqTest extends TestCase
    @Test
    public void testPiece() {
      Square square = new Square(true, true, true);
-     assertEquals(square.toString(), " B ");
+     assertEquals(square.toString(), " Y ");
    }
 
    @Test

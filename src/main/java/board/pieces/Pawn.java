@@ -10,12 +10,12 @@ public class Pawn extends Piece {
   private String color;
 
 
-  public Pawn(Square square, boolean isBlack) {
+  public Pawn(Square square, boolean isYellow) {
 
     super(square);
     color = " r ";
     faction = "Red";
-    if(isBlack) {
+    if(isYellow) {
       color = " y ";
       faction = "Yellow";
     }

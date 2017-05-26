@@ -9,12 +9,12 @@ public class King extends Piece{
 
   private String color;
 
-  public King(Square square, boolean isBlack) {
+  public King(Square square, boolean isYellow) {
 
     super(square);
     color = " R ";
     faction = "Red";
-    if(isBlack) {
+    if(isYellow) {
       color = " Y ";
       faction = "Yellow";
     }

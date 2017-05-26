@@ -9,14 +9,14 @@ public class Square {
   private Piece piece;
 
   //Square on the board. 64 squares per board
-  public Square(boolean isOccupied, boolean isBlack, boolean isKing) {
+  public Square(boolean isOccupied, boolean isYellow, boolean isKing) {
 
     this.isOccupied = isOccupied;
     if (isOccupied) {
       if (isKing) {
-        this.piece = new King(this, isBlack);
+        this.piece = new King(this, isYellow);
       } else {
-        this.piece = new Pawn(this, isBlack);
+        this.piece = new Pawn(this, isYellow);
       }
     }
     else {
