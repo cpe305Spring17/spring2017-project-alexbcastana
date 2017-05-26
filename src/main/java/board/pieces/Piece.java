@@ -9,13 +9,10 @@ public abstract class Piece {
   protected Square square;
   protected String faction;
 
-  public Piece(Square square, boolean isBlack) {
+  public Piece(Square square) {
 
     this.square = square;
-    faction = "Red";
-    if(isBlack) {
-      faction = "Black";
-    }
+
   }
 
   public abstract String getColor();

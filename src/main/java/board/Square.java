@@ -11,13 +11,17 @@ public class Square {
   //Square on the board. 64 squares per board
   public Square(boolean isOccupied, boolean isBlack, boolean isKing) {
 
-    if (isKing) {
-      this.piece = new King(this, isBlack);
-    } else {
-      this.piece = new Pawn(this, isBlack);
-    }
     this.isOccupied = isOccupied;
-
+    if (isOccupied) {
+      if (isKing) {
+        this.piece = new King(this, isBlack);
+      } else {
+        this.piece = new Pawn(this, isBlack);
+      }
+    }
+    else {
+      this.piece = new Empty(this);
+    }
   }
 
   public boolean isOccupied() {

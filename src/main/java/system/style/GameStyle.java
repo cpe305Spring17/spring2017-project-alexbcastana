@@ -3,27 +3,31 @@ package system.style; /**
  */
 import board.Board;
 import board.Square;
+import system.style.TurnMachine.RedTurn;
+import system.style.TurnMachine.TurnMachine;
 
 public abstract class GameStyle {
 
   private final int STARTING_PIECES = 12;
   private int timeRemaining;
   private int rPieces;
-  private int bPieces;
+  private int yPieces;
   private Board board;
   private int turnCount;
+  private TurnMachine turn;
 
   public GameStyle() {
     timeRemaining = 0;
     turnCount = 0;
     rPieces = STARTING_PIECES;
-    bPieces = STARTING_PIECES;
+    yPieces = STARTING_PIECES;
+    turn = new RedTurn();
   }
   public void startGame(Board board) {
     this.board = board;
     board.drawBoard();
     getPieceChanges();
-    System.out.println(determineTurn());
+    System.out.println(turn.toString());
   }
 
   public int getTimeRemaining() {
@@ -34,8 +38,8 @@ public abstract class GameStyle {
     return turnCount;
   }
 
-  public int getBPieces() {
-    return bPieces;
+  public int getYPieces() {
+    return yPieces;
   }
 
   public int getRPieces() {
@@ -46,8 +50,8 @@ public abstract class GameStyle {
     turnCount++;
   }
 
-  public void decBPieces() {
-    bPieces--;
+  public void decYPieces() {
+    yPieces--;
   }
 
   public void decRPieces() {
@@ -67,9 +71,10 @@ public abstract class GameStyle {
       System.out.println("That move is not valid");
     }
     else {
+      turn.changeTurn(this);
       incTurnCount();
     }
-    System.out.println(determineTurn());
+    System.out.println(turn.toString());
   }
 
   private boolean moveIsValid(int originX, int originY, int nextX, int nextY) {
@@ -79,34 +84,26 @@ public abstract class GameStyle {
 
     start = board.getSquare(originX, originY);
     end = board.getSquare(nextX, nextY);
-    return correctTurn(start) && start.isOccupied() && !end.isOccupied();
-  }
-
-  private boolean correctTurn(Square start) {
-    if (turnCount % 2 == 0) {
-      //red turn
-      return start.getPiece().getFaction().equals("Red");
-    }
-    return start.getPiece().getFaction().equals("Black");
-  }
-
-  private String determineTurn() {
-
-    if (turnCount % 2 == 0) {
-      return "It is Red's Turn";
-    }
-    return "It is Black's Turn";
+    return turn.correctTurn(start) && start.isOccupied() && !end.isOccupied();
   }
 
   public void getPieceChanges() {
     if (board.getRLost() == 1) {
       rPieces--;
     }
-    if (board.getBLost() == 1) {
-      bPieces--;
+    if (board.getYLost() == 1) {
+      yPieces--;
     }
     System.out.println("Remaining Red Pieces: " + rPieces);
-    System.out.println("Remaining Black Pieces: " + bPieces);
+    System.out.println("Remaining Yellow Pieces: " + yPieces);
+  }
+
+  public TurnMachine getTurn() {
+    return turn;
+  }
+
+  public void setTurn(TurnMachine turnState) {
+    turn = turnState;
   }
 }
 

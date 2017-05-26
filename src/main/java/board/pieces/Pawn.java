@@ -12,10 +12,12 @@ public class Pawn extends Piece {
 
   public Pawn(Square square, boolean isBlack) {
 
-    super(square, isBlack);
+    super(square);
     color = " r ";
+    faction = "Red";
     if(isBlack) {
-      color = " b ";
+      color = " y ";
+      faction = "Yellow";
     }
   }
 

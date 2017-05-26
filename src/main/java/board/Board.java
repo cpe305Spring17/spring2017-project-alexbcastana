@@ -10,8 +10,8 @@ public class Board {
 
   private final int SIZE = 8;
   private final int RED_SIDE = 3;
-  private final int BLACK_SIDE = 4;
-  private int bLost;
+  private final int YELLOW_SIDE = 4;
+  private int yLost;
   private int rLost;
 
   private Square[][] checkerBoard;
@@ -20,23 +20,23 @@ public class Board {
 
     checkerBoard = new Square[SIZE][SIZE];
     boolean isOccupied;
-    boolean isBlack;
+    boolean isYellow;
 
     for (int count = 0; count < SIZE; count++) {
 
       for (int counter = 0; counter < SIZE; counter++) {
-        isBlack = false;
+        isYellow = false;
         isOccupied = false;
 
         if (count < RED_SIDE && counter % 2 != 0) {
           isOccupied = true;
-        } else if (count > BLACK_SIDE && counter % 2 == 0) {
-          isBlack = isOccupied = true;
+        } else if (count > YELLOW_SIDE && counter % 2 == 0) {
+          isYellow = isOccupied = true;
         }
-        checkerBoard[count][counter] = new Square(isOccupied,  isBlack, false);
+        checkerBoard[count][counter] = new Square(isOccupied,  isYellow, false);
       }
     }
-    bLost = 0;
+    yLost = 0;
     rLost = 0;
   }
 
@@ -67,15 +67,14 @@ public class Board {
     origin = checkerBoard[originX][originY];
 
     rLost = 0;
-    bLost = 0;
+    yLost = 0;
 
     xCoor = nextX - originX;
     yCoor = nextY - originY;
-    captureLocX = originX + xCoor;
-    captureLocY = originY + yCoor;
+    captureLocX = determineCaptureSign(originX, xCoor);
+    captureLocY = determineCaptureSign(originY, yCoor);
 
     if (origin.getPiece() instanceof Pawn) {
-      System.out.println("Pawn Check" + xCoor + " " + yCoor);
       flag = checkPawn(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
     }
     else {
@@ -116,10 +115,13 @@ public class Board {
 
   private boolean checkForCapture(Square origin, int tempX, int tempY) {
 
+    String temp;
     boolean flag = false;
 
+
     try {
-      if (!origin.getPiece().getFaction().equals(checkerBoard[tempX][tempY].getPiece().getFaction())) {
+      temp = checkerBoard[tempX][tempY].getPiece().getFaction();
+      if (!origin.getPiece().getFaction().equals(temp) && !"Empty".equals(temp)) {
         flag = true;
       }
     }
@@ -134,21 +136,28 @@ public class Board {
   }
 
   private void takePiece(int tempX, int tempY) {
-    checkerBoard[tempX][tempX] = new Square(false, false, false);
     if (checkerBoard[tempX][tempY].getPiece().getFaction().equals("Red")) {
       rLost = 1;
     }
     else {
-      bLost = 1;
+      yLost = 1;
     }
+    checkerBoard[tempX][tempY] = new Square(false, false, false);
   }
 
   public int getRLost() {
     return rLost;
   }
 
-  public int getBLost() {
-    return bLost;
+  public int getYLost() {
+    return yLost;
+  }
+
+  private int determineCaptureSign(int value, int indicator) {
+    if (indicator > 0) {
+      return value + 1;
+    }
+    return value - 1;
   }
 }
 

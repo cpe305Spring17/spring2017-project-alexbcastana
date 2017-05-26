@@ -11,10 +11,12 @@ public class King extends Piece{
 
   public King(Square square, boolean isBlack) {
 
-    super(square, isBlack);
+    super(square);
     color = " R ";
+    faction = "Red";
     if(isBlack) {
-      color = " B ";
+      color = " Y ";
+      faction = "Yellow";
     }
   }
 
