@@ -8,7 +8,7 @@ A classic game in the retro command line style
 
 Command Checkers is played on an 8x8 board. Before the board is loaded, the user selects the gamestyle or mode (strategy pattern inspired). The user must input "standard", "Standard", "score", or "Score". Based on the input the game will adhere to the standard rules of draughts or based on a scoring system devised by the developer.
 
-Once the gamestyle is selected, the board is drawn and populated with red pawns and yellow pawns. The turn game will begin on red's turn. 
+Once the gamestyle is selected, the board is drawn and populated with red pawns and yellow pawns. Game will begin on red's turn. 
 
 # Standard Rules
 *The user chose "standard" or "Standard" as their gamestyle of choice.*
