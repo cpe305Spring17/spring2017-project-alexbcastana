@@ -63,7 +63,7 @@ public class Board {
 
     int captureLocX, captureLocY, xCoor, yCoor;
     boolean flag;
-    Square origin, next;
+    Square origin;
     origin = checkerBoard[originX][originY];
 
     rLost = 0;
@@ -75,20 +75,21 @@ public class Board {
     captureLocY = determineCaptureSign(originY, yCoor);
 
     if (origin.getPiece() instanceof Pawn) {
-      flag = checkPawn(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
+      flag = checkPawnMove(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
     }
     else {
-      flag = checkKing(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
+      flag = checkKingMove(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
     }
     if (flag) {
       checkerBoard[nextX][nextY] = checkerBoard[originX][originY];
       checkerBoard[originX][originY] = new Square(false, false, false);
-      //change turns
+      checkerBoard[nextX][nextY].kingMe(nextX);
+      //change turn
     }
     return flag;
   }
 
-  private boolean checkPawn(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
+  private boolean checkPawnMove(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
 
     if ((xCoor == -1 || xCoor == 1) && (yCoor == -1 || yCoor == 1)) {
       return true;
@@ -99,7 +100,7 @@ public class Board {
     return false;
   }
 
-  private boolean checkKing(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
+  private boolean checkKingMove(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
 
     if ((xCoor >= -1 && xCoor <= 1) && (yCoor >= -1 && xCoor <= 1)) {
       return true;
@@ -156,6 +157,9 @@ public class Board {
   private int determineCaptureSign(int value, int indicator) {
     if (indicator > 0) {
       return value + 1;
+    }
+    else if (indicator == 0) {
+      return value;
     }
     return value - 1;
   }
