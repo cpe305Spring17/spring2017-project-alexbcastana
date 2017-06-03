@@ -42,8 +42,10 @@ public class Board {
 
   public void drawBoard() {
 
-    System.out.println(" A  B  C  D  E  F  G  H ");
+    System.out.println("  A    B    C    D    E    F    G    H ");
     for (int count = 0; count < SIZE; count++) {
+
+      printUpperBound();
 
       for (int counter = 0; counter < SIZE; counter++) {
 
@@ -59,92 +61,6 @@ public class Board {
 
   }
 
-  public boolean makeMove(int originX, int originY, int nextX, int nextY) {
-
-    int captureLocX, captureLocY, xCoor, yCoor;
-    boolean flag;
-    Square origin;
-    origin = checkerBoard[originX][originY];
-
-    rLost = 0;
-    yLost = 0;
-
-    xCoor = nextX - originX;
-    yCoor = nextY - originY;
-    captureLocX = determineCaptureSign(originX, xCoor);
-    captureLocY = determineCaptureSign(originY, yCoor);
-
-    if (origin.getPiece() instanceof Pawn) {
-      flag = checkPawnMove(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
-    }
-    else {
-      flag = checkKingMove(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
-    }
-    if (flag) {
-      checkerBoard[nextX][nextY] = checkerBoard[originX][originY];
-      checkerBoard[originX][originY] = new Square(false, false, false);
-      checkerBoard[nextX][nextY].kingMe(nextX);
-      //change turn
-    }
-    return flag;
-  }
-
-  private boolean checkPawnMove(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
-
-    if ((xCoor == -1 || xCoor == 1) && (yCoor == -1 || yCoor == 1)) {
-      return true;
-    }
-    else if ((xCoor == 2 || xCoor == -2) && (yCoor == 2 || yCoor == -2)) {
-      return checkForCapture(checkerBoard[originX][originY], captureLocX, captureLocY);
-    }
-    return false;
-  }
-
-  private boolean checkKingMove(int originX, int originY, int xCoor, int yCoor, int captureLocX, int captureLocY) {
-
-    if ((xCoor >= -1 && xCoor <= 1) && (yCoor >= -1 && xCoor <= 1)) {
-      return true;
-    }
-    else if ((xCoor == 2 || xCoor == -2) && (yCoor <= 2 && yCoor >= -2)) {
-      return checkForCapture(checkerBoard[originX][originY], captureLocX, captureLocY);
-    }
-    else if ((xCoor <= 2 && xCoor >= -2) && (yCoor == 2 || yCoor == -2)) {
-      return checkForCapture(checkerBoard[originX][originY], captureLocX, captureLocY);
-    }
-    return false;
-  }
-
-  private boolean checkForCapture(Square origin, int tempX, int tempY) {
-
-    String temp;
-    boolean flag = false;
-
-
-    try {
-      temp = checkerBoard[tempX][tempY].getPiece().getFaction();
-      if (!origin.getPiece().getFaction().equals(temp) && !"Empty".equals(temp)) {
-        flag = true;
-      }
-    }
-    catch (Exception except){
-      flag = false;
-    }
-
-    if (flag) {
-      takePiece(tempX, tempY);
-    }
-    return flag;
-  }
-
-  private void takePiece(int tempX, int tempY) {
-    if (checkerBoard[tempX][tempY].getPiece().getFaction().equals("Red")) {
-      rLost = 1;
-    }
-    else {
-      yLost = 1;
-    }
-    checkerBoard[tempX][tempY] = new Square(false, false, false);
-  }
 
   public int getRLost() {
     return rLost;
@@ -154,14 +70,28 @@ public class Board {
     return yLost;
   }
 
-  private int determineCaptureSign(int value, int indicator) {
-    if (indicator > 0) {
-      return value + 1;
+  private void printUpperBound() {
+
+    int counter = 0;
+    while (counter++ < 8) {
+      System.out.print("+---+");
     }
-    else if (indicator == 0) {
-      return value;
-    }
-    return value - 1;
+    System.out.println();
+
+  }
+
+  public void setSquare(int toChangeX, int toChangeY, Square change) {
+
+    checkerBoard[toChangeX][toChangeY] = change;
+
+  }
+
+  public void setRLost(int number) {
+    rLost = number;
+  }
+
+  public void setYLost(int number) {
+    yLost = number;
   }
 }
 

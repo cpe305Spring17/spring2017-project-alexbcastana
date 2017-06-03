@@ -3,6 +3,7 @@ package system.style; /**
  */
 import board.Board;
 import board.Square;
+import system.MoveHandler;
 import system.style.TurnMachine.RedTurn;
 import system.style.TurnMachine.TurnMachine;
 
@@ -10,11 +11,12 @@ public abstract class GameStyle {
 
   private final int STARTING_PIECES = 12;
   private int timeRemaining;
-  private int rPieces;
-  private int yPieces;
-  private Board board;
-  private int turnCount;
-  private TurnMachine turn;
+  protected int rPieces;
+  protected int yPieces;
+  protected Board board;
+  protected int turnCount;
+  protected TurnMachine turn;
+  protected MoveHandler handler;
 
   public GameStyle() {
     timeRemaining = 0;
@@ -27,6 +29,7 @@ public abstract class GameStyle {
     this.board = board;
     board.drawBoard();
     getPieceChanges();
+    handler = new MoveHandler(board);
     System.out.println(turn.toString());
   }
 
@@ -63,21 +66,12 @@ public abstract class GameStyle {
     boolean flag = false;
 
     if (moveIsValid(originX, originY, nextX, nextY)) {
-      flag = board.makeMove(originX, originY, nextX, nextY);
+      flag = handler.makeMove(originX, originY, nextX, nextY);
     }
-    board.drawBoard();
-    getPieceChanges();
-    if (!flag) {
-      System.out.println("That move is not valid");
-    }
-    else {
-      turn.changeTurn(this);
-      incTurnCount();
-    }
-    System.out.println(turn.toString());
+    processTurn(flag);
   }
 
-  private boolean moveIsValid(int originX, int originY, int nextX, int nextY) {
+  protected boolean moveIsValid(int originX, int originY, int nextX, int nextY) {
 
 
     Square start, end;
@@ -88,12 +82,8 @@ public abstract class GameStyle {
   }
 
   public void getPieceChanges() {
-    if (board.getRLost() == 1) {
-      rPieces--;
-    }
-    if (board.getYLost() == 1) {
-      yPieces--;
-    }
+    rPieces = rPieces - board.getRLost();
+    yPieces = yPieces - board.getYLost();
     System.out.println("Remaining Red Pieces: " + rPieces);
     System.out.println("Remaining Yellow Pieces: " + yPieces);
   }
@@ -105,5 +95,11 @@ public abstract class GameStyle {
   public void setTurn(TurnMachine turnState) {
     turn = turnState;
   }
+
+  public abstract void endGame();
+
+  public abstract void combo(int[] coordinates, int size);
+
+  public abstract void processTurn(boolean madeChange);
 }
 

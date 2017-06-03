@@ -45,18 +45,17 @@ public class Square {
     if (isOccupied) {
       return piece.getColor();
     }
-    return " - ";
+    return "| - |";
   }
 
-  public void kingMe(int nextY) {
+  public void kingMe(int nextLoc) {
 
-    System.out.println(nextY);
-    if (nextY == 0 && "Yellow".equals(piece.getFaction())) {
+    if (nextLoc == 0 && "Yellow".equals(piece.getFaction())) {
 
       this.piece = new King(this, true);
     }
 
-    else if (nextY == 7 && "Red".equals(piece.getFaction())) {
+    else if (nextLoc == 7 && "Red".equals(piece.getFaction())) {
 
       this.piece = new King(this, false);
 

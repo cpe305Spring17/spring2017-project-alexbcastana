@@ -14,7 +14,7 @@ public class PieceTest extends TestCase {
         Piece myPiece;
         Square square = new Square(true, true, true);
         myPiece = square.getPiece();
-        assertTrue(myPiece.getColor().equals(" Y "));
+        assertTrue(myPiece.getColor().equals("| Y |"));
         assertTrue(myPiece.getFaction().equals("Yellow"));
     }
 }
