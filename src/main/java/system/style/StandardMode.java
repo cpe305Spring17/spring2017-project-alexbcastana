@@ -12,7 +12,9 @@ public class StandardMode extends GameStyle {
     super();
   }
 
-  public void endGame() {
+  public boolean endGame() {
+
+    boolean isOver = true;
 
     if (rPieces == 0) {
       System.out.println("Yellow is Victorious!");
@@ -22,46 +24,12 @@ public class StandardMode extends GameStyle {
     }
     else {
       System.out.println(turn.toString());
+      isOver = false;
     }
+    return isOver;
   }
 
-  public void combo(int[] coordinates, int size) {
-
-    int count = 0;
-    int originX, originY, nextX, nextY, changeX, changeY, permX, permY, tempX, tempY;
-    originY = tempY = coordinates[count++];
-    originX = tempX = coordinates[count++];
-    nextX = nextY = permX = permY = 0;
-
-    while (count < size) {
-
-      nextY = coordinates[count++];
-      nextX = coordinates[count++];
-
-      changeX = nextX - tempX;
-      changeY = nextY - tempY;
-
-      if (count > 5 && (permX != changeX || permY != changeY)) {
-        System.out.println("Invalid Direction. Please try again");
-        return;
-      }
-
-      if (!moveIsValid(originX, originY, nextX, nextY) ||
-              !handler.comboCheck(tempX, tempY, changeX, changeY)) {
-        System.out.println("Invalid move. Please try again");
-        return;
-      }
-
-      tempX = nextX;
-      tempY = nextY;
-      permX = changeX;
-      permY = changeY;
-    }
-    handler.makeCombo(coordinates, size);
-    processTurn(true);
-  }
-
-  public void processTurn(boolean madeChange) {
+  public boolean processTurn(boolean madeChange) {
 
     board.drawBoard();
     getPieceChanges();
@@ -72,6 +40,6 @@ public class StandardMode extends GameStyle {
       turn.changeTurn(this);
       incTurnCount();
     }
-    endGame();
+    return endGame();
   }
 }

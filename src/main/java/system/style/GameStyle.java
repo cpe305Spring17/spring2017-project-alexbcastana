@@ -61,14 +61,14 @@ public abstract class GameStyle {
     rPieces--;
   }
 
-  public void move(int originX, int originY, int nextX, int nextY) {
+  public boolean move(int originX, int originY, int nextX, int nextY) {
 
     boolean flag = false;
 
     if (moveIsValid(originX, originY, nextX, nextY)) {
       flag = handler.makeMove(originX, originY, nextX, nextY);
     }
-    processTurn(flag);
+    return processTurn(flag);
   }
 
   protected boolean moveIsValid(int originX, int originY, int nextX, int nextY) {
@@ -88,6 +88,43 @@ public abstract class GameStyle {
     System.out.println("Remaining Yellow Pieces: " + yPieces);
   }
 
+  public boolean combo(int[] coordinates, int size) {
+
+    int count = 0;
+    int originX, originY, nextX, nextY, changeX, changeY, permX, permY, tempX, tempY;
+    originY = tempY = coordinates[count++];
+    originX = tempX = coordinates[count++];
+    nextX = nextY = permX = permY = 0;
+
+    while (count < size) {
+
+      nextY = coordinates[count++];
+      nextX = coordinates[count++];
+
+      changeX = nextX - tempX;
+      changeY = nextY - tempY;
+
+      if (count > 5 && (permX != changeX || permY != changeY)) {
+        System.out.println("Invalid Direction. Please try again");
+        return false;
+      }
+
+      if (!moveIsValid(originX, originY, nextX, nextY) ||
+              !handler.comboCheck(tempX, tempY, changeX, changeY)) {
+        System.out.println("Invalid move. Please try again");
+        return false;
+      }
+
+      tempX = nextX;
+      tempY = nextY;
+      permX = changeX;
+      permY = changeY;
+    }
+    handler.makeCombo(coordinates, size);
+    processTurn(true);
+    return false;
+  }
+
   public TurnMachine getTurn() {
     return turn;
   }
@@ -96,10 +133,9 @@ public abstract class GameStyle {
     turn = turnState;
   }
 
-  public abstract void endGame();
+  public abstract boolean endGame();
 
-  public abstract void combo(int[] coordinates, int size);
 
-  public abstract void processTurn(boolean madeChange);
+  public abstract boolean processTurn(boolean madeChange);
 }
 

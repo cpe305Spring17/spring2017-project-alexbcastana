@@ -2,28 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a604bf2d-5e9b-46f8-bdd0-1e9f247b6015" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/system/MoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Board/pieces/King.class" afterPath="$PROJECT_DIR$/target/classes/Board/pieces/King.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Board/pieces/Pawn.class" afterPath="$PROJECT_DIR$/target/classes/Board/pieces/Pawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/System/style/GameStyle.class" afterPath="$PROJECT_DIR$/target/classes/System/style/GameStyle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/System/style/ScoreMode.class" afterPath="$PROJECT_DIR$/target/classes/System/style/ScoreMode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/System/style/StandardMode.class" afterPath="$PROJECT_DIR$/target/classes/System/style/StandardMode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/board/Board.class" afterPath="$PROJECT_DIR$/target/classes/board/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/board/Square.class" afterPath="$PROJECT_DIR$/target/classes/board/Square.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/system/driver/UserCommands.class" afterPath="$PROJECT_DIR$/target/classes/system/driver/UserCommands.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/PieceTest.class" afterPath="$PROJECT_DIR$/target/test-classes/PieceTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/SqTest.class" afterPath="$PROJECT_DIR$/target/test-classes/SqTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/board/Board.java" afterPath="$PROJECT_DIR$/src/main/java/board/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/board/Square.java" afterPath="$PROJECT_DIR$/src/main/java/board/Square.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/board/pieces/King.java" afterPath="$PROJECT_DIR$/src/main/java/board/pieces/King.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/board/pieces/Pawn.java" afterPath="$PROJECT_DIR$/src/main/java/board/pieces/Pawn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/system/driver/UserCommands.java" afterPath="$PROJECT_DIR$/src/main/java/system/driver/UserCommands.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/system/style/GameStyle.java" afterPath="$PROJECT_DIR$/src/main/java/system/style/GameStyle.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java" afterPath="$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/system/style/StandardMode.java" afterPath="$PROJECT_DIR$/src/main/java/system/style/StandardMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/PieceTest.java" afterPath="$PROJECT_DIR$/src/test/java/PieceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/SqTest.java" afterPath="$PROJECT_DIR$/src/test/java/SqTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +28,20 @@
       <file leaf-file-name="GameStyle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/system/style/GameStyle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+            <state relative-caret-position="858">
+              <caret line="125" column="3" lean-forward="false" selection-start-line="125" selection-start-column="3" selection-end-line="125" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreMode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -56,8 +50,8 @@
       <file leaf-file-name="StandardMode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/system/style/StandardMode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+            <state relative-caret-position="493">
+              <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#200#201#0" expanded="true" />
@@ -67,60 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MoveHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/system/MoveHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#216#217#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScoreMode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#468#469#0" expanded="true" />
-                <element signature="e#484#485#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#549#550#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserCommands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/system/driver/UserCommands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="129" column="5" lean-forward="true" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/board/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/board/Square.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="50" column="35" lean-forward="true" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+            <state relative-caret-position="414">
+              <caret line="94" column="28" lean-forward="false" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -172,10 +117,10 @@
         <option value="$PROJECT_DIR$/src/main/java/system/moveHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/board/Square.java" />
         <option value="$PROJECT_DIR$/src/main/java/board/Board.java" />
-        <option value="$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/system/MoveHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/system/style/StandardMode.java" />
         <option value="$PROJECT_DIR$/src/main/java/system/style/GameStyle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/system/MoveHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java" />
         <option value="$PROJECT_DIR$/src/main/java/system/driver/UserCommands.java" />
       </list>
     </option>
@@ -1104,27 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#468#469#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/system/style/GameStyle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/system/MoveHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="688">
@@ -1139,8 +1063,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/system/style/StandardMode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+        <state relative-caret-position="493">
+          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#200#201#0" expanded="true" />
@@ -1149,10 +1073,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/system/style/GameStyle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="125" column="3" lean-forward="false" selection-start-line="125" selection-start-column="3" selection-end-line="125" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/system/style/ScoreMode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/system/driver/UserCommands.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="129" column="5" lean-forward="true" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+        <state relative-caret-position="414">
+          <caret line="94" column="28" lean-forward="false" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
           <folding />
         </state>
       </provider>

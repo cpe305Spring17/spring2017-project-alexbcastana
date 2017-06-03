@@ -21,11 +21,12 @@ public class UserCommands {
     public int run() {
 
         String temp;
+        boolean end = false;
         Scanner scan = new Scanner(System.in);
 
         temp = scan.next();
-        while (!"quit".equals(temp)) {
-            interpretCommand(temp, scan);
+        while (!"quit".equals(temp) && !end) {
+            end = interpretCommand(temp, scan);
             temp = scan.next();
         }
 
@@ -33,21 +34,22 @@ public class UserCommands {
 
     }
 
-    public void interpretCommand(String command, Scanner scan) {
+    public boolean interpretCommand(String command, Scanner scan) {
 
         if ("move".equals(command) || ("Move").equals(command)) {
 
-            moveCommand(scan);
+            return moveCommand(scan);
 
         }
 
         else if ("combo".equals(command) || ("Combo").equals(command)) {
 
-            comboCommand(scan);
+            return comboCommand(scan);
         }
+        return false;
     }
 
-    private void moveCommand(Scanner scan) {
+    private boolean moveCommand(Scanner scan) {
 
         String coordinateStart, coordinateDest;
         int originX, originY, nextX, nextY;
@@ -57,7 +59,7 @@ public class UserCommands {
             coordinateDest = scan.next();
         }
         catch (Exception except) {
-            return;
+            return false;
         }
 
         originY = correctLetter(coordinateStart.charAt(0));
@@ -69,14 +71,14 @@ public class UserCommands {
 
         if (nextX < 0 || nextY < 0 || originX < 0 || originY < 0) {
             System.out.println("Invalid coordinates. Please try again.");
-            return;
+            return false;
         }
 
 
-        style.move(originX, originY, nextX, nextY);
+        return style.move(originX, originY, nextX, nextY);
     }
 
-    private void comboCommand(Scanner scan) {
+    private boolean comboCommand(Scanner scan) {
         int[] coordinates = new int[24];
         int count = 0;
         int limit;
@@ -89,20 +91,19 @@ public class UserCommands {
             token = scanScanner.next();
             coordinates[count++] = correctLetter(token.charAt(0));
             coordinates[count++] = Character.getNumericValue(token.charAt(1));
-            System.out.println(location);
         }
-
+        scanScanner.close();
         limit = count;
         count = 0;
 
         while (count < limit) {
             if (coordinates[count] < 0 || coordinates[count] > 8) {
                 System.out.println("One of the coordinates is invalid. Please try again.");
-                return;
+                return false;
             }
             count++;
         }
-        style.combo(coordinates, limit);
+        return style.combo(coordinates, limit);
 
     }
 

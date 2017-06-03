@@ -25,15 +25,11 @@ public class ScoreMode extends GameStyle {
     return p2Score;
   }
 
-  public void endGame() {
-    return;
+  public boolean endGame() {
+    return false;
   }
 
-  public void combo(int[] coordinates, int size) {
-    return;
-  }
-
-  public void processTurn(boolean madeChange) {
-    return;
+  public boolean processTurn(boolean madeChange) {
+    return false;
   }
 }
