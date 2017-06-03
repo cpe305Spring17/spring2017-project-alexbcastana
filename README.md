@@ -19,3 +19,4 @@ When a pawn reaches the opposite edge (downward or upward) on the board, the paw
 
 Once a move has been made, the turn changes. 
 
+## Please see the wiki pages for further details
