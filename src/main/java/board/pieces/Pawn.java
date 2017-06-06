@@ -12,17 +12,18 @@ public class Pawn extends Piece {
 
   public Pawn(Square square, boolean isYellow) {
 
-    super(square);
-    color = "| r |";
-    faction = "Red";
-    if(isYellow) {
-      color = "| y |";
-      faction = "Yellow";
-    }
+    super(square, isYellow);
+    ptValue = 10;
   }
 
-  public void setColor(String color) {
-    this.color = color;
+  public void setYellow() {
+    this.color = "| y |";
+    this.faction = "Yellow";
+  }
+
+  public void setRed() {
+    this.color = "| r |";
+    this.faction = "Red";
   }
 
   public String getColor() {

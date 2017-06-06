@@ -10,8 +10,18 @@ public class Empty extends Piece {
     private String color;
 
     public Empty(Square square) {
-        super(square);
-        faction = "Empty";
+        super(square, false);
+        ptValue = 0;
+    }
+
+
+    public void setYellow() {
+        this.color = null;
+        this.faction = "Empty";
+    }
+
+    public void setRed() {
+        setYellow();
     }
 
     public String getFaction() {

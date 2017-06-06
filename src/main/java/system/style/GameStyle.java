@@ -135,7 +135,6 @@ public abstract class GameStyle {
 
   public abstract boolean endGame();
 
-
   public abstract boolean processTurn(boolean madeChange);
 }
 

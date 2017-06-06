@@ -8,14 +8,27 @@ import board.Square;
 public abstract class Piece {
   protected Square square;
   protected String faction;
+  protected int ptValue;
 
-  public Piece(Square square) {
+  public Piece(Square square, boolean isYellow) {
 
     this.square = square;
+    setRed();
+    if (isYellow) {
+      setYellow();
+    }
 
   }
+
+  public abstract void setRed();
+
+  public abstract void setYellow();
 
   public abstract String getColor();
 
   public abstract String getFaction();
+
+  public int getptValue() {
+    return ptValue;
+  }
 }
