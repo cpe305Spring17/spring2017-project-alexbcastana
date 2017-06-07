@@ -79,7 +79,6 @@ public class UserCommands {
             return false;
         }
 
-
         return style.move(originX, originY, nextX, nextY);
     }
 

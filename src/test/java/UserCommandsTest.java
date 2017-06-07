@@ -2,6 +2,7 @@
  * Created by Marth on 6/7/2017.
  */
 
+import board.Board;
 import org.junit.Test;
 import junit.framework.TestCase;
 import system.driver.Driver;
@@ -16,6 +17,7 @@ public class UserCommandsTest extends TestCase {
 
     public void testMove() {
         ScoreMode mode = new ScoreMode();
+        mode.startGame(new Board());
         UserCommands commands = new UserCommands(mode);
         String temp = "B2 C3";
         Scanner scan = new Scanner(temp);
