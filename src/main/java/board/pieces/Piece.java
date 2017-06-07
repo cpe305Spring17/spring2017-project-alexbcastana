@@ -28,7 +28,7 @@ public abstract class Piece {
 
   public abstract String getFaction();
 
-  public int getptValue() {
+  public int getPtValue() {
     return ptValue;
   }
 }
