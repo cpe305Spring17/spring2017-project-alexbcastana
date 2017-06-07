@@ -73,6 +73,10 @@ public class UserCommands {
             System.out.println("Invalid coordinates. Please try again.");
             return false;
         }
+        else if(nextX > 7 || nextY > 7 || originX > 7 || originY > 7) {
+            System.out.println("Invalid Coordinates. Please try again.");
+            return false;
+        }
 
 
         return style.move(originX, originY, nextX, nextY);
