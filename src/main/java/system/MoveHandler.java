@@ -134,18 +134,17 @@ public class MoveHandler {
          return false;
     }
 
-    public void makeCombo(int[] coordinates, int size) {
+    public boolean makeCombo(int[] coordinates, int size) {
 
         int locX, locY;
         int count = 0;
         int originX = coordinates[count++];
         int originY = coordinates[count++];
         int tempX, tempY;
+        boolean kingAdded;
 
         board.setRLost(0);
         board.setYLost(0);
-        board.setRKings(0);
-        board.setYKings(0);
 
         while (count < size) {
 
@@ -158,6 +157,7 @@ public class MoveHandler {
 
         board.setSquare(coordinates[count-1], coordinates[count-2], board.getSquare(originY, originX));
         board.setSquare(originY, originX, new Square(false, false, false));
-        board.getSquare(coordinates[count-1], coordinates[count-2]).kingMe(coordinates[count-1]);
+        kingAdded = board.getSquare(coordinates[count-1], coordinates[count-2]).kingMe(coordinates[count-1]);
+        return kingAdded;
     }
 }

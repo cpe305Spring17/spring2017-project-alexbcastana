@@ -13,6 +13,8 @@ public abstract class GameStyle {
   private int timeRemaining;
   protected int rPieces;
   protected int yPieces;
+  protected int rKingNum;
+  protected int yKingNum;
   protected Board board;
   protected int turnCount;
   protected TurnMachine turn;
@@ -23,6 +25,7 @@ public abstract class GameStyle {
     turnCount = 0;
     rPieces = STARTING_PIECES;
     yPieces = STARTING_PIECES;
+    rKingNum = yKingNum = 0;
     turn = new RedTurn();
   }
   public void startGame(Board board) {
@@ -48,6 +51,10 @@ public abstract class GameStyle {
   public int getRPieces() {
     return rPieces;
   }
+
+  public int getRKingNum() { return rKingNum; }
+
+  public int getYKingNum() { return yKingNum; }
 
   public void incTurnCount() {
     turnCount++;
@@ -80,7 +87,10 @@ public abstract class GameStyle {
   public void getPieceChanges() {
     rPieces = rPieces - board.getRLost();
     yPieces = yPieces - board.getYLost();
+
     completePieceChanges();
+    rKingNum = board.getRKings();
+    yKingNum = board.getYKings();
   }
 
   public boolean combo(int[] coordinates, int size) {

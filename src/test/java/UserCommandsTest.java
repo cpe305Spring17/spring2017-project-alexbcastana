@@ -149,4 +149,5 @@ public class UserCommandsTest extends TestCase {
         assertEquals(mode.getP2Score(), 40);
     }
 
+
 }
