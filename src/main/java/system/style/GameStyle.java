@@ -53,6 +53,10 @@ public abstract class GameStyle {
     turnCount++;
   }
 
+  public void setRPieces(int number) { rPieces = number; }
+
+  public void setYPieces(int number) { yPieces = number; }
+
   public boolean move(int originX, int originY, int nextX, int nextY) {
 
     boolean flag = false;
