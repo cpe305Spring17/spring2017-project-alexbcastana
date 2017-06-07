@@ -25,4 +25,16 @@ public class StandardTest extends TestCase {
 
         assertNotNull(gameBoard);
     }
+
+    @Test
+    public void StandardMoveTest() {
+
+        Board gameBoard = new Board();
+        GameStyle game = new StandardMode();
+        game.startGame(gameBoard);
+        assertFalse(game.move(0, 0, 0, 0));
+        assertFalse(game.move(7, 0, 0, 0));
+        assertFalse(game.move(1, 1, 2, 3));
+        assertTrue(game.move(1, 1, 2, 2));
+    }
 }
