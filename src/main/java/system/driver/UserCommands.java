@@ -57,7 +57,8 @@ public class UserCommands {
         try {
             coordinateStart = scan.next();
             coordinateDest = scan.next();
-
+            System.out.println(coordinateStart);
+            System.out.println(coordinateDest);
             originY = correctLetter(coordinateStart.charAt(0));
             originX = Character.getNumericValue(coordinateStart.charAt(1));
 

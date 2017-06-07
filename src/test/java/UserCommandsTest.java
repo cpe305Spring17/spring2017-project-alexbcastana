@@ -4,6 +4,7 @@
 
 import org.junit.Test;
 import junit.framework.TestCase;
+import system.driver.Driver;
 import system.driver.UserCommands;
 import system.style.ScoreMode;
 
@@ -12,70 +13,71 @@ import java.util.Scanner;
 
 public class UserCommandsTest extends TestCase {
 
+
     public void testMove() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move B2 C3";
+        String temp = "B2 C3";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
-        temp = "move AA YY";
+        temp = "AA YY";
         scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 
     public void testMoveFailCoordinateOne() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move Z2 C3";
+        String temp = "Z2 C3";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 
     public void testMoveFailCoordinateTwo() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move B9 C3";
+        String temp = "B9 C3";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 
     public void testMoveFailCoordinateThree() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move B2 Z3";
+        String temp = "B2 Z3";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 
     public void testMoveFailCoordinateFour() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move B2 C9";
+        String temp = "B2 C9";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 
     public void testMoveFailCoordinateFive() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move BY C3";
+        String temp = "BY C3";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 
     public void testMoveFailCoordinateSix() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
-        String temp = "move B2 CY";
+        String temp = "B2 CY";
         Scanner scan = new Scanner(temp);
-        assertFalse(commands.interpretCommand(scan.next(), scan));
+        assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
 }
