@@ -1,5 +1,6 @@
 package board;
 
+import board.pieces.King;
 import board.pieces.Pawn;
 
 /**
@@ -13,6 +14,8 @@ public class Board {
   private final int YELLOW_SIDE = 4;
   private int yLost;
   private int rLost;
+  private int rKings;
+  private int yKings;
 
   private Square[][] checkerBoard;
 
@@ -38,6 +41,8 @@ public class Board {
     }
     yLost = 0;
     rLost = 0;
+    rKings = 0;
+    yKings = 0;
   }
 
   public void drawBoard() {
@@ -70,6 +75,10 @@ public class Board {
     return yLost;
   }
 
+  public int getRKings() { return rKings; }
+
+  public int getYKings() { return yKings; }
+
   private void printUpperBound() {
 
     int counter = 0;
@@ -93,5 +102,31 @@ public class Board {
   public void setYLost(int number) {
     yLost = number;
   }
+
+  public void incKing(int spotX, int spotY) {
+    if ("Red".equals(checkerBoard[spotX][spotY].getPiece().getFaction())) {
+      rKings++;
+    }
+    else {
+      yKings++;
+    }
+  }
+
+  public void checkKingLost(int tempX, int tempY, boolean isYellow) {
+
+    if (isYellow && checkerBoard[tempX][tempY].getPiece() instanceof King) {
+      yKings--;
+    }
+    else if (checkerBoard[tempX][tempY].getPiece() instanceof King) {
+      rKings--;
+    }
+  }
+
+  public void setRKings(int number) { rKings = number;
+  }
+
+  public void setYKings(int number) { yKings = number; }
+
+
 }
 

@@ -12,34 +12,25 @@ public class StandardMode extends GameStyle {
     super();
   }
 
-  public boolean endGame() {
+  public boolean completeEnd(boolean isYellow) {
 
-    boolean isOver = true;
-
-    if (rPieces == 0) {
+    if (isYellow) {
       System.out.println("Yellow is Victorious!");
     }
-    else if (yPieces == 0) {
+    else {
       System.out.println("Red is Victorious!");
     }
-    else {
-      System.out.println(turn.toString());
-      isOver = false;
-    }
-    return isOver;
+    return true;
   }
 
-  public boolean processTurn(boolean madeChange) {
+  public void completeTurn() {
+    return;
+  }
 
-    board.drawBoard();
-    getPieceChanges();
-    if (!madeChange) {
-      System.out.println("That command is not valid");
-    }
-    else {
-      turn.changeTurn(this);
-      incTurnCount();
-    }
-    return endGame();
+  public void completePieceChanges() {
+
+    System.out.println("Remaining Red Pieces: " + rPieces);
+    System.out.println("Remaining Yellow Pieces: " + yPieces);
+
   }
 }

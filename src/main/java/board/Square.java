@@ -48,18 +48,21 @@ public class Square {
     return "| - |";
   }
 
-  public void kingMe(int nextLoc) {
+  public boolean kingMe(int nextLoc) {
+
+    boolean changedToKing = false;
 
     if (nextLoc == 0 && "Yellow".equals(piece.getFaction())) {
-
+      changedToKing = true;
       this.piece = new King(this, true);
     }
 
     else if (nextLoc == 7 && "Red".equals(piece.getFaction())) {
-
+      changedToKing = true;
       this.piece = new King(this, false);
 
     }
 
+    return changedToKing;
   }
 }

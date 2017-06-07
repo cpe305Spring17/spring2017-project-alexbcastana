@@ -84,8 +84,7 @@ public abstract class GameStyle {
   public void getPieceChanges() {
     rPieces = rPieces - board.getRLost();
     yPieces = yPieces - board.getYLost();
-    System.out.println("Remaining Red Pieces: " + rPieces);
-    System.out.println("Remaining Yellow Pieces: " + yPieces);
+    completePieceChanges();
   }
 
   public boolean combo(int[] coordinates, int size) {
@@ -125,6 +124,35 @@ public abstract class GameStyle {
     return false;
   }
 
+  public boolean processTurn(boolean madeChange) {
+
+    board.drawBoard();
+    getPieceChanges();
+    if (!madeChange) {
+      System.out.println("That command is not valid");
+    }
+    else {
+      completeTurn();
+      turn.changeTurn(this);
+      incTurnCount();
+    }
+    return endGame();
+  }
+
+  public boolean endGame() {
+
+    boolean isOver = false;
+
+    if (rPieces == 0) {
+      return completeEnd(false);
+    } else if (yPieces == 0) {
+      completeEnd(true);
+    } else {
+      System.out.println(turn.toString());
+    }
+    return isOver;
+  }
+
   public TurnMachine getTurn() {
     return turn;
   }
@@ -133,8 +161,10 @@ public abstract class GameStyle {
     turn = turnState;
   }
 
-  public abstract boolean endGame();
+  public abstract boolean completeEnd(boolean isYellow);
 
-  public abstract boolean processTurn(boolean madeChange);
+  public abstract void completeTurn();
+
+  public abstract void completePieceChanges();
 }
 

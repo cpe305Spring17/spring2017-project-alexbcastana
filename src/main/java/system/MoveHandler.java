@@ -14,11 +14,13 @@ public class MoveHandler {
     public MoveHandler(Board board) {
         this.board = board;
     }
+
     public boolean makeMove(int originX, int originY, int nextX, int nextY) {
 
         int captureLocX, captureLocY, xCoor, yCoor;
-        boolean flag;
+        boolean flag, kingAdded;
         Square origin;
+        kingAdded = false;
         origin = board.getSquare(originX, originY);
 
         xCoor = nextX - originX;
@@ -28,6 +30,8 @@ public class MoveHandler {
 
         board.setRLost(0);
         board.setYLost(0);
+        board.setRKings(0);
+        board.setYKings(0);
         if (origin.getPiece() instanceof Pawn) {
             flag = checkPawnMove(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
         }
@@ -37,8 +41,11 @@ public class MoveHandler {
         if (flag) {
             board.setSquare(nextX, nextY, board.getSquare(originX, originY));
             board.setSquare(originX, originY, new Square(false, false, false));
-            board.getSquare(nextX, nextY).kingMe(nextX);
+            kingAdded = board.getSquare(nextX, nextY).kingMe(nextX);
             //change turn
+        }
+        if (kingAdded) {
+            board.incKing(nextX, nextY);
         }
         return flag;
     }
@@ -91,14 +98,18 @@ public class MoveHandler {
     }
 
     private void takePiece(int tempX, int tempY, int piecesLost) {
-        if (board.getSquare(tempX, tempY).getPiece().getFaction().equals("Red")) {
+
+        Square tempSquare = board.getSquare(tempX, tempY);
+
+        if (tempSquare.getPiece().getFaction().equals("Red")) {
             board.setRLost(piecesLost);
+            board.checkKingLost(tempX, tempY, false);
         }
         else {
             board.setYLost(piecesLost);
+            board.checkKingLost(tempX, tempY, true);
         }
         board.setSquare(tempX, tempY, new Square(false, false, false));
-        System.out.println(piecesLost);
     }
 
     private int determineCaptureSign(int value, int indicator) {
@@ -130,6 +141,11 @@ public class MoveHandler {
         int originX = coordinates[count++];
         int originY = coordinates[count++];
         int tempX, tempY;
+
+        board.setRLost(0);
+        board.setYLost(0);
+        board.setRKings(0);
+        board.setYKings(0);
 
         while (count < size) {
 

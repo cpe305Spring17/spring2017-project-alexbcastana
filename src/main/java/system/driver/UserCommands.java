@@ -57,17 +57,17 @@ public class UserCommands {
         try {
             coordinateStart = scan.next();
             coordinateDest = scan.next();
+
+            originY = correctLetter(coordinateStart.charAt(0));
+            originX = Character.getNumericValue(coordinateStart.charAt(1));
+
+            nextY = correctLetter(coordinateDest.charAt(0));
+            nextX = Character.getNumericValue(coordinateDest.charAt(1));
         }
         catch (Exception except) {
+            System.out.println("Invalid Coordinates. Please try again.");
             return false;
         }
-
-        originY = correctLetter(coordinateStart.charAt(0));
-        originX = Character.getNumericValue(coordinateStart.charAt(1));
-
-        nextY = correctLetter(coordinateDest.charAt(0));
-        nextX = Character.getNumericValue(coordinateDest.charAt(1));
-
 
         if (nextX < 0 || nextY < 0 || originX < 0 || originY < 0) {
             System.out.println("Invalid coordinates. Please try again.");
@@ -81,20 +81,25 @@ public class UserCommands {
     private boolean comboCommand(Scanner scan) {
         int[] coordinates = new int[24];
         int count = 0;
-        int limit;
+        int limit = 0;
         String location, token;
         Scanner scanScanner;
 
-        location = scan.nextLine();
-        scanScanner = new Scanner(location);
-        while (scanScanner.hasNext()) {
-            token = scanScanner.next();
-            coordinates[count++] = correctLetter(token.charAt(0));
-            coordinates[count++] = Character.getNumericValue(token.charAt(1));
+        try {
+            location = scan.nextLine();
+            scanScanner = new Scanner(location);
+            while (scanScanner.hasNext()) {
+                token = scanScanner.next();
+                coordinates[count++] = correctLetter(token.charAt(0));
+                coordinates[count++] = Character.getNumericValue(token.charAt(1));
+            }
+            scanScanner.close();
+            limit = count;
+            count = 0;
         }
-        scanScanner.close();
-        limit = count;
-        count = 0;
+        catch (Exception e) {
+            System.out.println("At least one coordinate is invalid. Please try again.");
+        }
 
         while (count < limit) {
             if (coordinates[count] < 0 || coordinates[count] > 8) {
