@@ -84,6 +84,7 @@ public class UserCommands {
         int limit = 0;
         String location, token;
         Scanner scanScanner;
+        scanScanner = new Scanner(System.in);
 
         try {
             location = scan.nextLine();
@@ -99,6 +100,8 @@ public class UserCommands {
         }
         catch (Exception e) {
             System.out.println("At least one coordinate is invalid. Please try again.");
+            scanScanner.close();
+            return false;
         }
 
         while (count < limit) {

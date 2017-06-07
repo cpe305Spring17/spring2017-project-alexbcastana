@@ -3,6 +3,7 @@
  */
 
 import board.Square;
+import board.pieces.Pawn;
 import board.pieces.Piece;
 import org.junit.Test;
 import junit.framework.TestCase;
@@ -27,5 +28,17 @@ public class SqTest extends TestCase
    public void testGetPiece() {
       Square square = new Square(true, true, true);
       assertTrue(square.getPiece() != null);
+      square.setPiece(new Pawn(square, true));
+      assertTrue(square.getPiece() instanceof Pawn);
+   }
+
+   @Test
+   public void testKingMe() {
+      Square square = new Square(true, true, false);
+      assertTrue(square.kingMe(0));
+      assertFalse(square.kingMe(7));
+      square = new Square(true, false, false);
+      assertFalse(square.kingMe(0));
+      assertTrue(square.kingMe(7));
    }
 }

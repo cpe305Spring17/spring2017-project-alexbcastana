@@ -52,12 +52,12 @@ public class Square {
 
     boolean changedToKing = false;
 
-    if (nextLoc == 0 && "Yellow".equals(piece.getFaction())) {
+    if (nextLoc == 0 && "Yellow".equals(piece.getFaction()) && piece instanceof Pawn) {
       changedToKing = true;
       this.piece = new King(this, true);
     }
 
-    else if (nextLoc == 7 && "Red".equals(piece.getFaction())) {
+    else if (nextLoc == 7 && "Red".equals(piece.getFaction()) && piece instanceof Pawn) {
       changedToKing = true;
       this.piece = new King(this, false);
 
