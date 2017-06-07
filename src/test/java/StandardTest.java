@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import system.style.GameStyle;
 import system.style.StandardMode;
 import system.style.TurnMachine.RedTurn;
+import system.style.TurnMachine.YellowTurn;
 
 public class StandardTest extends TestCase {
 
@@ -41,5 +42,14 @@ public class StandardTest extends TestCase {
 
         game.setYPieces(0);
         assertTrue(game.endGame());
+    }
+
+    public void testStandardYellowTurn() {
+        Board gameBoard = new Board();
+        GameStyle game = new StandardMode();
+        game.startGame(gameBoard);
+        game.setTurn(new YellowTurn());
+        assertFalse(game.move(5, 0, 2, 2));
+        assertFalse(game.move(5, 0, 4, 1));
     }
 }

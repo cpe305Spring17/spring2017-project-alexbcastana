@@ -82,4 +82,41 @@ public class UserCommandsTest extends TestCase {
         assertFalse(commands.interpretCommand("move", scan));
         scan.close();
     }
+
+    public void testMoveFailCoordinateSeven() {
+        ScoreMode mode = new ScoreMode();
+        UserCommands commands = new UserCommands(mode);
+        String temp = "+2 C3";
+        Scanner scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+    }
+
+    public void testMoveFailCoordinateEight() {
+        ScoreMode mode = new ScoreMode();
+        UserCommands commands = new UserCommands(mode);
+        String temp = "B+ C3";
+        Scanner scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+    }
+
+    public void testMoveFailCoordinateNine() {
+        ScoreMode mode = new ScoreMode();
+        UserCommands commands = new UserCommands(mode);
+        String temp = "B2 +3";
+        Scanner scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+    }
+
+    public void testMoveFailCoordinateTen() {
+        ScoreMode mode = new ScoreMode();
+        UserCommands commands = new UserCommands(mode);
+        String temp = "B2 C+";
+        Scanner scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+    }
+
 }
