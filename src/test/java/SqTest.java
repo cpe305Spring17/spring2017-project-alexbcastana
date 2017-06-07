@@ -33,6 +33,7 @@ public class SqTest extends TestCase
       square.setPiece(new Pawn(square, true));
       assertTrue(square.getPiece() instanceof Pawn);
       assertEquals(square.getPiece().getPtValue(), 10);
+      assertEquals(square.getPiece().getColor(), "| y |");
    }
 
    @Test
@@ -43,6 +44,12 @@ public class SqTest extends TestCase
       square = new Square(true, false, false);
       assertFalse(square.kingMe(0));
       assertTrue(square.kingMe(7));
+      square = new Square(true, true, true);
+      assertFalse(square.kingMe(0));
+      assertFalse(square.kingMe(7));
+      square = new Square(true, false, true);
+      assertFalse(square.kingMe(0));
+      assertFalse(square.kingMe(7));
    }
 
    @Test
@@ -54,5 +61,6 @@ public class SqTest extends TestCase
       assertEquals(square.getPiece().getFaction(), "Empty");
       assertNull(square.getPiece().getColor());
       assertEquals(square.getPiece().getPtValue(), 0);
+      assertEquals(square.toString(), "| - |");
    }
 }
