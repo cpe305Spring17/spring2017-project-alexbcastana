@@ -10,8 +10,7 @@ import system.style.StandardMode;
 
 public class StandardTest extends TestCase {
 
-    @Test
-    public void StandardTestSetUp() {
+    public void standardSetUp() {
         Board gameBoard = new Board();
         GameStyle game = new StandardMode();
         assertNotNull(game);
@@ -24,9 +23,8 @@ public class StandardTest extends TestCase {
 
         assertNotNull(gameBoard);
     }
-
-    @Test
-    public void StandardMoveTest() {
+    
+    public void standardMove() {
         Board gameBoard = new Board();
         GameStyle game = new StandardMode();
         game.startGame(gameBoard);
