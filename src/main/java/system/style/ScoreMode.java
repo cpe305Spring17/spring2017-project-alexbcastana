@@ -11,7 +11,8 @@ public class ScoreMode extends GameStyle {
   private int p1Score;
   private int p2Score;
   private final int PAWN_SCORE = 10;
-  private final int KING_SCORE = 30;
+  private final int KING_SCORE = 20;
+  private final int KING_ME_PTS = 30;
 
 
   public ScoreMode() {
@@ -46,28 +47,43 @@ public class ScoreMode extends GameStyle {
   }
 
   public void completePieceChanges() {
-    int lossY, lossR, tempY, tempR;
+    int lossY, lossR, tempY, tempR, kingPtsR, kingPtsY;
     tempY = board.getYKings();
     tempR = board.getRKings();
     lossY = board.getYLost();
     lossR = board.getRLost();
+    kingPtsR = kingPtsY = 0;
 
-    p1Score += calculateScore(lossY, tempY);
-    p2Score += calculateScore(lossR, tempR);
+    if (tempR - rKingNum >= 0) {
+      kingPtsR = (tempR - rKingNum) * KING_ME_PTS;
+    }
+    else {
+      kingPtsY = (rKingNum - tempR) * KING_SCORE;
+    }
+    if (tempY - yKingNum >= 0) {
+      kingPtsY = (tempY - yKingNum) * KING_ME_PTS;
+    }
+    else {
+      kingPtsR = (yKingNum - tempY) * KING_SCORE;
+    }
+
+    p1Score += calculateScore(lossY, kingPtsY, yKingNum - tempY);
+    p2Score += calculateScore(lossR, kingPtsR, rKingNum - tempR);
 
     System.out.println("Remaining Red Pieces: " + rPieces);
     System.out.println("Remaining Yellow Pieces: " + yPieces);
 
   }
 
-  private int calculateScore(int loss, int kings) {
+  private int calculateScore(int loss, int kings, int kingNum) {
 
     int totalScore = 0;
-    int temp = kings + loss;
 
-    totalScore += PAWN_SCORE * temp;
+    if (loss != -(kingNum) || loss != (kingNum)) {
+      totalScore += PAWN_SCORE * (Math.abs(kingNum) + loss);
+    }
 
-    totalScore += KING_SCORE * kings;
+    totalScore += kings;
 
     if (loss > 1) {
       totalScore *= 2;

@@ -122,6 +122,7 @@ public class UserCommandsTest extends TestCase {
     public void testComboFailCoordinateOne() {
         ScoreMode mode = new ScoreMode();
         UserCommands commands = new UserCommands(mode);
+        mode.startGame(new Board());
         String temp = "B2 C3";
         Scanner scan = new Scanner(temp);
         assertFalse(commands.interpretCommand("move", scan));
