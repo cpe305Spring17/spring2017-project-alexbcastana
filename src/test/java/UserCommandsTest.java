@@ -119,4 +119,34 @@ public class UserCommandsTest extends TestCase {
         scan.close();
     }
 
+    public void testComboFailCoordinateOne() {
+        ScoreMode mode = new ScoreMode();
+        UserCommands commands = new UserCommands(mode);
+        String temp = "B2 C3";
+        Scanner scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        temp = "A5 B4";
+        scan.close();
+        scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+        temp = "D2 E3";
+        scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+        temp = "G5 F4";
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+        temp = "F0 E1";
+        scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+        temp = "B4 D2 F0";
+        scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("Combo", scan));
+        scan.close();
+        assertEquals(mode.getP1Score(), 0);
+        assertEquals(mode.getP2Score(), 40);
+    }
+
 }
