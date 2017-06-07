@@ -31,6 +31,6 @@ public class StandardTest extends TestCase {
         assertFalse(game.move(0, 0, 0, 0));
         assertFalse(game.move(7, 0, 0, 0));
         assertFalse(game.move(1, 1, 2, 3));
-        assertTrue(game.move(1, 1, 2, 2));
+        assertFalse(game.move(1, 1, 2, 2));
     }
 }
