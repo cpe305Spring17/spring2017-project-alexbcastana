@@ -53,14 +53,6 @@ public abstract class GameStyle {
     turnCount++;
   }
 
-  public void decYPieces() {
-    yPieces--;
-  }
-
-  public void decRPieces() {
-    rPieces--;
-  }
-
   public boolean move(int originX, int originY, int nextX, int nextY) {
 
     boolean flag = false;
@@ -93,7 +85,7 @@ public abstract class GameStyle {
     int originX, originY, nextX, nextY, changeX, changeY, permX, permY, tempX, tempY;
     originY = tempY = coordinates[count++];
     originX = tempX = coordinates[count++];
-    nextX = nextY = permX = permY = 0;
+    permX = permY = 0;
 
     while (count < size) {
 
