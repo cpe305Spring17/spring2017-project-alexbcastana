@@ -21,11 +21,11 @@ public class StandardTest extends TestCase {
         assertEquals(game.getYPieces(), 12);
         assertEquals(game.getRPieces(), 12);
 
+
+        game.startGame(gameBoard);
         assertFalse(game.processTurn(false));
         game.setRPieces(0);
         assertTrue(game.endGame());
-
-        game.startGame(gameBoard);
 
         assertNotNull(gameBoard);
     }

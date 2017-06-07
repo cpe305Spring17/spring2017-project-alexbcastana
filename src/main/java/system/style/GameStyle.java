@@ -140,9 +140,9 @@ public abstract class GameStyle {
     boolean isOver = false;
 
     if (rPieces == 0) {
-      return completeEnd(false);
+      isOver = completeEnd(false);
     } else if (yPieces == 0) {
-      completeEnd(true);
+      isOver = completeEnd(true);
     } else {
       System.out.println(turn.toString());
     }
