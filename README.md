@@ -19,7 +19,7 @@ When a pawn reaches the opposite edge (downward or upward) on the board, the paw
 
 Once a move has been made, the turn changes. 
 
-## Score Rules
+# Score Rules
 *The user chose "Score" or "score" as their gamestyle of choice.*
 
 In this mode, the path to victory lies with the player who most stylishly battled. 
