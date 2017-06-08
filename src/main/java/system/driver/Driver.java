@@ -17,7 +17,7 @@ public class Driver {
     Scanner scan = new Scanner(System.in);
     Board board = new Board();
 
-    System.out.println("What game mode would you like to play?");
+    System.out.println("What game mode would you like to play? (Standard or Score)");
 
     String mode = scan.next();
 

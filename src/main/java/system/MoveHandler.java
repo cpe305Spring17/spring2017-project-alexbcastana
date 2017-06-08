@@ -159,7 +159,6 @@ public class MoveHandler {
         kingAdded = board.getSquare(coordinates[count-1], coordinates[count-2]).kingMe(coordinates[count-1]);
 
         if (kingAdded) {
-            System.out.println("HERE");
             board.incKing(coordinates[count-1], coordinates[count-2]);
         }
 
