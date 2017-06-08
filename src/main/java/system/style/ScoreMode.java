@@ -68,8 +68,8 @@ public class ScoreMode extends GameStyle {
       kingPtsR = (yKingNum - tempY) * KING_SCORE;
     }
 
-    System.out.println("yNum " + lossY);
-    System.out.println("rNum " + lossR);
+    System.out.println("yNum " + kingPtsY);
+    System.out.println("rNum " + kingPtsR);
 
     p2Score += calculateScore(lossR, kingPtsY, yKingNum - tempY);
     p1Score += calculateScore(lossY, kingPtsR, rKingNum - tempR);
