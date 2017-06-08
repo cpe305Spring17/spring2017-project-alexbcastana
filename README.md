@@ -34,3 +34,13 @@ If a combo is used, the points retrieved are collectively summed up and doubled.
 The player with the most points when a player runs out of pieces wins.
 
 Otherwise the rules obey the Standard Rules.
+
+# The Original Idea
+
+![http://i.imgur.com/huHVEff.png](http://i.imgur.com/huHVEff.png)
+
+# The Final Product
+
+![http://i.imgur.com/FQXxMBu.png](http://i.imgur.com/FQXxMBu.png)
+
+
