@@ -30,8 +30,7 @@ public class MoveHandler {
 
         board.setRLost(0);
         board.setYLost(0);
-        board.setRKings(0);
-        board.setYKings(0);
+
         if (origin.getPiece() instanceof Pawn) {
             flag = checkPawnMove(originX, originY, xCoor, yCoor, captureLocX, captureLocY);
         }
@@ -158,6 +157,12 @@ public class MoveHandler {
         board.setSquare(coordinates[count-1], coordinates[count-2], board.getSquare(originY, originX));
         board.setSquare(originY, originX, new Square(false, false, false));
         kingAdded = board.getSquare(coordinates[count-1], coordinates[count-2]).kingMe(coordinates[count-1]);
+
+        if (kingAdded) {
+            System.out.println("HERE");
+            board.incKing(coordinates[count-1], coordinates[count-2]);
+        }
+
         return kingAdded;
     }
 }

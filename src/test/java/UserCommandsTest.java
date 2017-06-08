@@ -136,6 +136,7 @@ public class UserCommandsTest extends TestCase {
         assertFalse(commands.interpretCommand("move", scan));
         scan.close();
         temp = "G5 F4";
+        scan = new Scanner(temp);
         assertFalse(commands.interpretCommand("move", scan));
         scan.close();
         temp = "F0 E1";

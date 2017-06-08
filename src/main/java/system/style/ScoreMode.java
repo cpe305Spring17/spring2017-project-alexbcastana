@@ -54,6 +54,7 @@ public class ScoreMode extends GameStyle {
     lossR = board.getRLost();
     kingPtsR = kingPtsY = 0;
 
+
     if (tempR - rKingNum >= 0) {
       kingPtsR = (tempR - rKingNum) * KING_ME_PTS;
     }
@@ -67,8 +68,11 @@ public class ScoreMode extends GameStyle {
       kingPtsR = (yKingNum - tempY) * KING_SCORE;
     }
 
-    p1Score += calculateScore(lossY, kingPtsY, yKingNum - tempY);
-    p2Score += calculateScore(lossR, kingPtsR, rKingNum - tempR);
+    System.out.println("yNum " + lossY);
+    System.out.println("rNum " + lossR);
+
+    p2Score += calculateScore(lossR, kingPtsY, yKingNum - tempY);
+    p1Score += calculateScore(lossY, kingPtsR, rKingNum - tempR);
 
     System.out.println("Remaining Red Pieces: " + rPieces);
     System.out.println("Remaining Yellow Pieces: " + yPieces);
@@ -78,9 +82,10 @@ public class ScoreMode extends GameStyle {
   private int calculateScore(int loss, int kings, int kingNum) {
 
     int totalScore = 0;
+    int calculation = Math.abs(Math.abs(kingNum) - loss);
 
-    if (loss != -(kingNum) || loss != (kingNum)) {
-      totalScore += PAWN_SCORE * (Math.abs(kingNum) + loss);
+    if (calculation != 0) {
+      totalScore += PAWN_SCORE * calculation;
     }
 
     totalScore += kings;

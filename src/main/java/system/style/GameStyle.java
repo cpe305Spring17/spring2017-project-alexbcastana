@@ -126,8 +126,7 @@ public abstract class GameStyle {
       permY = changeY;
     }
     handler.makeCombo(coordinates, size);
-    processTurn(true);
-    return false;
+    return processTurn(true);
   }
 
   public boolean processTurn(boolean madeChange) {
