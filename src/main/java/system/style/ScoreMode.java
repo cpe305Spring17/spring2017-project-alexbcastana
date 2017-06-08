@@ -84,9 +84,7 @@ public class ScoreMode extends GameStyle {
     int totalScore = 0;
     int calculation = Math.abs(Math.abs(kingNum) - loss);
 
-    if (calculation != 0) {
-      totalScore += PAWN_SCORE * calculation;
-    }
+    totalScore += PAWN_SCORE * calculation;
 
     totalScore += kings;
 

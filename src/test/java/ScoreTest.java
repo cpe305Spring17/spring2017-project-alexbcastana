@@ -22,6 +22,6 @@ public class ScoreTest extends TestCase {
         assertEquals(game.getP2Score(), 0);
         game.getPieceChanges();
         System.out.println("P2Score = " + game.getP2Score());
-        assertEquals(game.getP2Score(), 30);
+        assertEquals(game.getP2Score(), 40);
     }
 }
