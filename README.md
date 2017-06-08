@@ -43,6 +43,19 @@ Otherwise the rules obey the Standard Rules.
 
 ![http://i.imgur.com/PHFGOjt.png](http://i.imgur.com/PHFGOjt.png)
 
+# Software Architecture:
+
+The system adheres to a layered architecture:
+
+## 3-tiers
+
+* Driver and UserCommands
+
+* GameStyle, MoveHandler and TurnMachine
+
+* Board, Square, and Piece
+
+
 # Design Patterns:
 
 ## Strategy Pattern
@@ -54,5 +67,23 @@ This is exemplified in the GameStyle, ScoreMode, and StandardMode classes as wel
 ## State Pattern
 This is seen in the GameStyle, TurnMachine, YellowTurn, and RedTurn Classes. The GameStyle has a state to determine whether it is Yellow's turn to move or Red's turn to move. After a valid move is made, the GameStyle uses the TurnMachine to change states and process turns.
 
+
+# Key Learnings:
+
+* Utilizing Design Patterns
+
+* Properly following a planned Software Architecture
+
+* Travis CI and CheckStyle tools
+
+* SonarQube analysis
+
+# Highlights: 
+
+* Theory crafting the score mode
+
+* Writing test cases
+
+* Using Design Patterns unconciously
 
 
