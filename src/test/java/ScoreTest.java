@@ -15,7 +15,7 @@ public class ScoreTest extends TestCase {
         Board board = new Board();
         game.startGame(board);
         board.setYKings(1);
-        board.setRLost(0);
+        board.setRLost(1);
         assertEquals(game.getRKingNum(), 0);
         assertEquals(game.getYKingNum(), 0);
         assertEquals(game.getP1Score(), 0);
