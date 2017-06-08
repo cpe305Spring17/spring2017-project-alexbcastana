@@ -29,8 +29,8 @@ public class ScoreTest extends TestCase {
         ScoreMode game = new ScoreMode();
         Board board = new Board();
         game.startGame(board);
-        board.setYLost(12);
+        game.setYPieces(0);
         game.move(1, 1, 2, 2);
-        assertEquals(game.getP1Score(), 240);
+        assertEquals(game.getP1Score(), 0);
     }
 }
