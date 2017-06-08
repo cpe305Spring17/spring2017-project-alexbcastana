@@ -19,4 +19,18 @@ When a pawn reaches the opposite edge (downward or upward) on the board, the paw
 
 Once a move has been made, the turn changes. 
 
-## Please see the wiki pages for further details
+## Score Rules
+*The user chose "Score" or "score" as their gamestyle of choice.*
+
+In this mode, the path to victory lies with the player who most stylishly battled. 
+Points are awarded as follows:
+
+Capture Pawn = 10
+Capture King = 20
+Promote Pawn = 30
+
+If a combo is used, the points retrieved are collectively summed up and doubled.
+
+The player with the most points when a player runs out of pieces wins.
+
+Otherwise the rules obey the Standard Rules.
