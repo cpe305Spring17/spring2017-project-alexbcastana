@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import system.driver.Driver;
 import system.driver.UserCommands;
 import system.style.ScoreMode;
+import system.style.StandardMode;
 
 import java.util.Scanner;
 
@@ -149,7 +150,13 @@ public class UserCommandsTest extends TestCase {
         scan.close();
         assertEquals(mode.getP1Score(), 0);
         assertEquals(mode.getP2Score(), 80);
+        temp = "F2 G3";
+        scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
+        scan.close();
+        temp = "f0 f2";
+        scan = new Scanner(temp);
+        assertFalse(commands.interpretCommand("move", scan));
     }
-
 
 }
