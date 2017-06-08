@@ -148,7 +148,7 @@ public class UserCommandsTest extends TestCase {
         assertFalse(commands.interpretCommand("Combo", scan));
         scan.close();
         assertEquals(mode.getP1Score(), 0);
-        assertEquals(mode.getP2Score(), 40);
+        assertEquals(mode.getP2Score(), 80);
     }
 
 
