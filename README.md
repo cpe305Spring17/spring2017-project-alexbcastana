@@ -41,6 +41,18 @@ Otherwise the rules obey the Standard Rules.
 
 # The Final Product
 
-![http://i.imgur.com/FQXxMBu.png](http://i.imgur.com/FQXxMBu.png)
+![http://i.imgur.com/PHFGOjt.png](http://i.imgur.com/PHFGOjt.png)
+
+# Design Patterns:
+
+## Strategy Pattern
+This is exemplified in the GameStyle, ScoreMode, and StandardMode classes. The GameStyle is the strategy super class and users have to choose whether to play the game as either Score or Standard mode at the beginning of the game. 
+
+## Template Method Pattern
+This is exemplified in the GameStyle, ScoreMode, and StandardMode classes as well. GameStyle has a template method of getPieces() to scan the board for any piece changes. Then Score and Standard have submethods of completeGetPieces() that complete the operation based on what strategy the user selected.
+
+## State Pattern
+This is seen in the GameStyle, TurnMachine, YellowTurn, and RedTurn Classes. The GameStyle has a state to determine whether it is Yellow's turn to move or Red's turn to move. After a valid move is made, the GameStyle uses the TurnMachine to change states and process turns.
+
 
 
