@@ -86,4 +86,41 @@ This is seen in the GameStyle, TurnMachine, YellowTurn, and RedTurn Classes. The
 
 * Using Design Patterns unconciously
 
+# Game Preview:
 
+## Starting the game
+
+### Choose a game mode
+![http://i.imgur.com/wR3265y.png](http://i.imgur.com/wR3265y.png)
+
+### Draw the board
+![http://i.imgur.com/eS2XAkn.png](http://i.imgur.com/eS2XAkn.png)
+
+
+## Move Command
+
+### Make a move using following command
+![http://i.imgur.com/uDlXHQH.png](http://i.imgur.com/uDlXHQH.png)
+
+### That command moves red pawn at location B2 to C3
+![http://i.imgur.com/8IAjk0M.png](http://i.imgur.com/8IAjk0M.png)
+
+
+## Combo Command
+
+### If multiple pieces can be taken in one turn use the following command
+![http://i.imgur.com/RrfxwCI.png](http://i.imgur.com/RrfxwCI.png)
+
+### That particular command will capture two red pawns with a red pawn at location A4.
+![http://i.imgur.com/Z0Hzujr.png](http://i.imgur.com/Z0Hzujr.png)
+
+![http://i.imgur.com/UE4g4Qm.png](http://i.imgur.com/UE4g4Qm.png)
+
+
+## King Movement
+
+### A King can move in any direction
+
+![http://i.imgur.com/uy9Pf3D.png](http://i.imgur.com/uy9Pf3D.png)
+
+![http://i.imgur.com/GuQxrYI.png](http://i.imgur.com/GuQxrYI.png)
