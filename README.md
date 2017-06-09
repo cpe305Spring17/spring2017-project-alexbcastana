@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/cpe305Spring17/spring2017-project-alexbcastana.svg?branch=master)](https://travis-ci.org/cpe305Spring17/spring2017-project-alexbcastana)
 
-
 # Command Checkers
 A classic game in the retro command line style
 
@@ -66,6 +65,10 @@ This is exemplified in the GameStyle, ScoreMode, and StandardMode classes as wel
 
 ## State Pattern
 This is seen in the GameStyle, TurnMachine, YellowTurn, and RedTurn Classes. The GameStyle has a state to determine whether it is Yellow's turn to move or Red's turn to move. After a valid move is made, the GameStyle uses the TurnMachine to change states and process turns.
+
+# SonarQube Status
+
+[![Quality Status](http://i.imgur.com/xjbHEbT.png)](http://i.imgur.com/xjbHEbT.png)
 
 
 # Key Learnings:
