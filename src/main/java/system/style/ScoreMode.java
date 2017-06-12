@@ -33,10 +33,10 @@ public class ScoreMode extends GameStyle {
   public boolean completeEnd(boolean isYellow) {
 
     if (p1Score > p2Score) {
-      System.out.println("Yellow is victorious with a score of: " + p2Score);
+      System.out.println("Red is victorious with a score of: " + p2Score);
     }
     else {
-      System.out.println("Red is victorious with a score of: " + p1Score);
+      System.out.println("Yellow is victorious with a score of: " + p1Score);
     }
     return true;
   }

@@ -15,10 +15,10 @@ public class StandardMode extends GameStyle {
   public boolean completeEnd(boolean isYellow) {
 
     if (isYellow) {
-      System.out.println("Yellow is Victorious!");
+      System.out.println("Red is Victorious!");
     }
     else {
-      System.out.println("Red is Victorious!");
+      System.out.println("Yellow is Victorious!");
     }
     return true;
   }
